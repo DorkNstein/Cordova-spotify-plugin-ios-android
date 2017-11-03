@@ -1,12 +1,12 @@
 var exec = require('cordova/exec');
                
 module.exports = {
-    login : function(a,b,url) {
+    login : function(a,b,url, success, error) {
         let swap = url+'/swap';
         let refresh = url+ '/refresh';
         exec(
-                     function() {},
-                     function() {},
+                     success,
+                     error,
                      "SpotifyPlugin",
                      "login",
                      [a,b,swap,refresh]

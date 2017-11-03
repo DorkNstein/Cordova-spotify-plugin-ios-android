@@ -323,7 +323,7 @@ public class SpotifyPlugin extends CordovaPlugin implements
     private void login(String val) {
         clientId = val;
         final AuthenticationRequest request = new AuthenticationRequest.Builder(clientId, AuthenticationResponse.Type.TOKEN, redirectUri)
-                .setScopes(new String[]{"user-read-private", "playlist-read", "playlist-read-private", "user-read-email", "streaming"})
+                .setScopes(new String[]{"user-read-private", "playlist-read", "playlist-read-private", "user-read-email", "streaming", "user-follow-read", "playlist-read-collaborative", "user-library-read", "user-top-read", "user-read-recently-played", "user-read-birthdate"})
                 .build();
         AuthenticationClient.openLoginActivity(cordova.getActivity(), REQUEST_CODE, request);
     }
@@ -421,9 +421,10 @@ public class SpotifyPlugin extends CordovaPlugin implements
                     Log.i(TAG, "TOKEN " + response.getAccessToken());
                     currentAccessToken = response.getAccessToken();
                     onAuthenticationComplete(response);
-                    JSONArray array1 = new JSONArray();
-                    array1.put("logged in");
-                    sendUpdate("onLogedIn", new Object[]{array1});
+                    loginCallback.success(currentAccessToken);
+                    // JSONArray array1 = new JSONArray();
+                    // array1.put("logged in");
+                    // sendUpdate("onLogedIn", new Object[]{array1});
 
                     break;
                 case CODE:
