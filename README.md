@@ -37,7 +37,7 @@ var Spotify = window.cordova.plugins.SpotifyPlugin;
 All methods returning promises, but you can also use standard callback functions.
 
 ```javascript
-Spotify.login(appId, redirectURL, mode);
+Spotify.login(appId, redirectURL, mode, function(success) {//Success code}, function(error) {// error code});
 ```
 > - *appId* - your application id in Spotify
 > - *redirectURL* - White-listed addresses to redirect to after authentication success OR failure 
