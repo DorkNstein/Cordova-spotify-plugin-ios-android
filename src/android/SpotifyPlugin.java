@@ -422,6 +422,7 @@ public class SpotifyPlugin extends CordovaPlugin implements
                     currentAccessToken = response.getAccessToken();
                     onAuthenticationComplete(response);
                     loginCallback.success(currentAccessToken);
+                    loginCallback = null;
                     // JSONArray array1 = new JSONArray();
                     // array1.put("logged in");
                     // sendUpdate("onLogedIn", new Object[]{array1});
@@ -443,14 +444,17 @@ public class SpotifyPlugin extends CordovaPlugin implements
                 case ERROR:
                     Log.e(TAG, response.getError());
                     loginCallback.error(response.getError());
-                    JSONArray array = new JSONArray();
-                    array.put("did not login");
-                    sendUpdate("onDidNotLogin", new Object[]{array});
+                    loginCallback = null;
+                    // JSONArray array = new JSONArray();
+                    // array.put("did not login");
+                    // sendUpdate("onDidNotLogin", new Object[]{array});
                     break;
                 default:
-                    JSONArray array3 = new JSONArray();
-                    array3.put("did not login");
-                    sendUpdate("onDidNotLogin", new Object[]{array3});
+                    loginCallback.error(response.getError());
+                    loginCallback = null;
+                    // JSONArray array3 = new JSONArray();
+                    // array3.put("did not login");
+                    // sendUpdate("onDidNotLogin", new Object[]{array3});
                     break;
             }
         }
