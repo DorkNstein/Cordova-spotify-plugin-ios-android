@@ -323,7 +323,7 @@ public class SpotifyPlugin extends CordovaPlugin implements
     private void login(String val) {
         clientId = val;
         final AuthenticationRequest request = new AuthenticationRequest.Builder(clientId, AuthenticationResponse.Type.TOKEN, redirectUri)
-                .setScopes(new String[]{"user-read-private", "playlist-read", "playlist-read-private", "user-read-email", "streaming", "user-follow-read", "playlist-read-collaborative", "user-library-read", "user-top-read", "user-read-recently-played", "user-read-birthdate"})
+                .setScopes(new String[]{"user-read-private", "playlist-read-private", "user-read-email", "streaming", "user-follow-read", "playlist-read-collaborative", "user-library-read", "user-top-read", "user-read-recently-played", "user-read-birthdate"})
                 .build();
         AuthenticationClient.openLoginActivity(cordova.getActivity(), REQUEST_CODE, request);
     }
