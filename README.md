@@ -1,7 +1,7 @@
 [![N|Solid](http://procoders.tech/art/powered.png)](http://procoders.tech/)
 
 # Cordova Spotify Plugin
-This plugin included all main functions of audio player for Spotify servise :smirk:
+I modified this plugin to match my requirements of native login authentications for android and ios. :smirk:
 
 ## Installation
 > To communicate with Spotify you need to register your application’s bundle id section in the [Developer Portal](http://developers.deezer.com/sdk/ios). This value is used to authenticate your application against Spotify client.
